@@ -1,0 +1,216 @@
+//-----------------------------
+
+.screen-2 .line-1
+    top: get-vw(-35px)
+    +mediaSize(700)
+        top: get-vw(-60px)
+
+.screen-2 .big-letters-marquee.line-1
+    width: get-vw(1225px) * 3
+    height: get-vw(230px)
+    animation-name: marquee-2-1
+    +mediaSize(500)
+        width: 700vw
+        height: 150px
+        animation-name: mobile-marquee-2-1
+
+@keyframes marquee-2-1
+    0%
+        left: 0
+    100%
+        left: get-vw(-1225px)
+
+@keyframes mobile-marquee-2-1
+    0%
+        left: 0
+    100%
+        left: calc(-700vw / 3)
+
+//-----------------------------
+
+.screen-2 .line-2
+    top: get-vw(200px)
+    +mediaSize(700)
+        top: get-vw(350px)
+    +mediaSize(500)
+        top: auto
+        bottom: get-vw(600px)
+
+.screen-2 .big-letters-marquee.line-2
+    width: get-vw(1065px) * 3
+    height: get-vw(215px)
+    animation-name: marquee-2-2
+    +mediaSize(500)
+        width: 700vw
+        height: 150px
+        animation-name: mobile-marquee-2-2
+
+@keyframes marquee-2-2
+    0%
+        left: 0
+    100%
+        left: get-vw(-1065px)
+
+@keyframes mobile-marquee-2-2
+    0%
+        left: 0
+    100%
+        left: calc(-700vw / 3)
+
+//-----------------------------
+
+.screen-2
+    width: 100%
+    display: flex
+    flex-flow: row wrap
+    align-items: flex-end
+
+.screen-2 .section-content
+    @media (min-width: $min-width)
+        justify-content: center
+
+.screen-2 .section-content
+    +mediaSize(1000)
+        flex-flow: row wrap
+
+.screen-2 .bordered-content
+    background: rgba($theme-white, 0.55)
+    width: get-vw(580px)
+    margin-left: get-vw(75px)
+    margin-bottom: get-vw(65px)
+    padding: get-vw(65px) get-vw(60px) get-vw(10px) get-vw(170px)
+    @media (min-width: $min-width)
+        width: 580px
+        margin-left: 75px
+        margin-bottom: 65px
+        padding: 65px 60px 10px 170px
+    +mediaSize(1100)
+        width: 40%
+        margin-bottom: 60px
+        margin-left: 60px
+        padding: 40px 10px 20px 80px
+    +mediaSize(1000)
+        width: calc(100% - 100px)
+        margin-bottom: 40px
+    +mediaSize(500)
+        margin-left: 35px
+        width: calc(100% - 60px)
+        padding: 60px 10px 20px 25px
+
+.screen-2 .bordered-content > p:first-child br
+    +mediaSize(500)
+        display: none
+
+.screen-2 .bordered-content *
+    font-size: get-vw(15px)
+    font-weight: 300
+    +letterSpace(70)
+    @media (min-width: $min-width)
+        font-size: 17px
+    +mediaSize(1100)
+        font-size: 13px
+        line-height: 1.7
+    +mediaSize(1000)
+        font-size: 15px
+
+.screen-2 .inverse
+    font-weight: 600
+    color: $theme-white
+    position: relative
+    z-index: 3
+    margin-right: 5px
+    background: $theme-black
+    white-space: nowrap
+
+.screen-2 .inverse:before
+    content: ''
+    position: absolute
+    top: -5%
+    bottom: -5%
+    left: -5%
+    right: -5%
+    background: $theme-black
+    z-index: -1
+
+.screen-2 .big-text
+    font-weight: bold
+    font-size: get-vw(30px)
+    line-height: 1
+    margin: get-vw(10px) 0
+    @media (min-width: $min-width)
+        font-size: 30px
+        margin: 10px 0
+    +mediaSize(1100)
+        margin: 10px 0
+        font-size: 26px
+        line-height: 1
+        padding-left: 25px
+    +mediaSize(1000)
+        font-size: 30px
+
+.screen-2 .absolute-text
+    bottom: 0
+    left: 0
+    width: get-vw(85px)
+    height: get-vw(85px)
+    transform: translate(-55%, 50%)
+    @media (min-width: $min-width)
+        width: 85px
+        height: 85px
+    +mediaSize(1100)
+        width: 100px
+        height: 100px
+    +mediaSize(500)
+        display: none
+
+.section-2-text
+    position: relative
+    margin: auto 0 get-vw(65px) get-vw(80px)
+    @media (min-width: $min-width)
+        margin: auto 40px 65px 80px
+    +mediaSize(1100)
+        margin: auto 40px 60px auto
+    +mediaSize(1000)
+        width: calc(100% - 100px)
+        margin-left: auto
+    +mediaSize(500)
+        width: calc(100% - 50px)
+        margin-left: 25px
+        margin-right: 25px
+
+.section-2-text:before,
+.section-2-text:after
+    content: ''
+    position: absolute
+    background: $theme-black
+    height: 1px
+    left: 0
+    width: 85%
+    +mediaSize(500)
+        width: 100%
+
+.section-2-text:before
+    top: 1px
+
+.section-2-text:after
+    bottom: 1px
+
+.section-2-text p
+    +letterSpace(50)
+    line-height: 1.8
+    color: $active-color
+    font-size: get-vw(22px)
+    padding: get-vw(35px) 0
+    @media (min-width: $min-width)
+        font-size: 22px
+        padding: 35px 0
+    +mediaSize(1100)
+        +letterSpace(20)
+        font-size: 18px
+        padding: 30px 0
+    +mediaSize(1000)
+        font-size: 20px
+        line-height: 1.25
+    +mediaSize(500)
+        padding-left: 35px
+        line-height: 1.54

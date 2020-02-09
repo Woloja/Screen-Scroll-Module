@@ -1,0 +1,43 @@
+# Laravel 4 specific
+# Laravel 5 & Lumen specific
+# folder cache
+# folder images
+# folder logs and system
+#else folder
+.env
+.env.*.php
+.env.php
+.htaccess
+.idea/
+.phpunit.result.cache
+.vscode/
+/.vagrant
+/.vscode
+/cache/
+/node_modules
+/public/themes/builder/
+/storage/*.key
+/themes/builder/move-to-public/
+/vendor
+Homestead.json
+Homestead.yaml
+app/storage/
+bootstrap/compiled.php
+database.sqlite
+gzip.php
+modules/*/Config/backup/
+npm-debug.log
+package-lock.json
+public/hot
+public/storage
+public/watermark/watermark.png
+stats.json
+storage/*.key
+vendor/
+yarn-error.log
+
+/public/css/
+/public/js/
+/public/fonts/
+/public/image/
+/public/index.html

@@ -1,0 +1,44 @@
+.fixed-panel
+    position: fixed
+    right: 0
+    bottom: 0
+    top: 0
+    background: $theme-black
+    width: get-vw(50px)
+    @media (min-width: $min-width)
+        width: 50px
+    +mediaSize(1100)
+        width: 40px
+    +mediaSize(1000)
+        display: none
+
+.fixed-content
+    display: flex
+    width: 100%
+    height: 100%
+
+.fixed-panel *
+    color: $theme-white
+    writing-mode: tb
+    margin: auto
+
+.fixed-panel p
+    font-size: get-vw(14px)
+    @media (min-width: $min-width)
+        font-size: 14px
+    +mediaSize(1100)
+        font-size: 12px
+
+.fixed-panel a
+    font-size: get-vw(16px)
+    @media (min-width: $min-width)
+        font-size: 16px
+    +mediaSize(1100)
+        font-size: 14px
+
+.fixed-content > *
+    height: 50%
+    text-align: center
+
+.fixed-panel a.active
+    font-weight: bold

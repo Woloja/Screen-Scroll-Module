@@ -1,0 +1,11 @@
+{
+    "/public/js/resources/js/manifest.js": "/public/js/resources/js/manifest.js",
+    "/public/js//resources/js/vendor.js": "/public/js//resources/js/vendor.js?id=db7756dca5f3e6202e53",
+    "/public/js//resources/js/vanilla-app.js": "/public/js//resources/js/vanilla-app.js?id=1b3cdc5d4860149c9ca1",
+    "/public/css/app.css": "/public/css/app.css",
+    "/public/js//resources/js/vanilla-polyfill.js": "/public/js//resources/js/vanilla-polyfill.js?id=576e142d23f83876f61e",
+    "/public/js//resources/js/vanilla-system.js": "/public/js//resources/js/vanilla-system.js?id=c2966215381756276753",
+    "/public/js/app.js": "/public/js/app.js",
+    "/public/js/system.js": "/public/js/system.js",
+    "/public/js/polyfill.js": "/public/js/polyfill.js"
+}

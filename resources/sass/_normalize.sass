@@ -1,0 +1,164 @@
+
+*:not(svg):not(use), *:before, *:after
+    box-sizing: border-box
+
+*:active, *:hover, *:focus, a:active, a:hover
+    outline: 0
+
+input[type="checkbox"], input[type="radio"]
+    box-sizing: border-box
+    padding: 0
+
+article, aside, details, figcaption, figure, footer, header, menu, section, summary
+    display: block
+
+nav
+    display: flex
+    flex-flow: row wrap
+
+main
+    width: 100%
+    display: block
+
+audio, canvas, iframe, img, video, progress
+    border: 0
+    vertical-align: middle
+
+audio:not([controls]), [hidden], template
+    display: none
+    height: 0
+
+abbr[title]
+    border-bottom: 1px dotted
+
+i, address, dfn
+    font-style: normal
+
+small
+    font-size: 80%
+
+sub, sup
+    font-size: 75%
+    line-height: 0
+    position: relative
+    vertical-align: baseline
+
+sup
+    top: -.5em
+
+sub
+    bottom: -.25em
+
+code, kbd, pre, samp
+    font-family: monospace, monospace
+    font-size: 1em
+    overflow: auto
+
+
+select
+    cursor: pointer
+    text-transform: none
+
+button, html input[type="button"], input[type="reset"], input[type="submit"]
+    -webkit-appearance: button
+    overflow: visible
+    cursor: pointer
+    text-transform: none
+
+button[disabled], html input[disabled]
+    cursor: default
+
+button::-moz-focus-inner, input::-moz-focus-inner
+    border: 0
+    padding: 0
+
+
+td, th
+    padding: 0
+
+optgroup
+    font-weight: 700
+
+legend,
+fieldset,
+input,
+optgroup,
+button,
+select,
+figure,
+textarea
+    font-family: inherit
+    font-size: inherit
+    line-height: inherit
+    resize: none
+    border: none
+    color: inherit
+    margin: 0
+    padding: 0
+    overflow: auto
+
+b, strong
+    font-weight: bold
+
+button[disabled], html input[disabled]
+    cursor: default
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button
+    height: auto
+
+input[type="search"]
+    -webkit-appearance: textfield
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration
+    -webkit-appearance: none
+
+table
+    border-collapse: collapse
+    border-spacing: 0
+    width: 100%
+
+blockquote, q
+    quotes: none
+    margin: 0
+    padding: 0
+    
+
+input[type='number']
+    -webkit-appearance: none
+    position: relative
+
+
+input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus, input:-webkit-autofill:active
+    -webkit-animation: autofill 0 forwards
+    animation: autofill 0 forwards
+
+header ul, footer ul
+    padding: 0
+    margin: 0
+    list-style: none
+
+svg:not(:root), svg
+    border: 0
+    vertical-align: middle
+    overflow: hidden
+    color: inherit
+    width: 100%
+    height: 100%
+    transform-origin: 50% 50%
+    
+use
+    color: inherit
+    transform-origin: 50% 50%
+
+path
+    transform-origin: 50% 50%
+
+input::-ms-clear, ::-webkit-inner-spin-button
+    display: none !important
+
+::-webkit-file-upload-button
+    border: none
+    padding: 0
+    opacity: 0

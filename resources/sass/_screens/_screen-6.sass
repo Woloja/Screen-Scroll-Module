@@ -1,0 +1,164 @@
+
+//-----------------------------
+
+.screen-6 .line-1
+
+.screen-6 .line-1
+    top: get-vw(135px)
+
+.screen-6 .big-letters-marquee.line-1
+    width: get-vw(3560px) * 2
+    height: get-vw(370px)
+    animation-name: marquee-6-1
+
+@keyframes marquee-6-1
+    0%
+        left: 0
+    100%
+        left: get-vw(-3560px)
+
+//-----------------------------
+
+.screen-6 .section-content
+    align-items: flex-end
+    justify-content: space-between
+    padding: 0 get-vw(165px) get-vw(90px) get-vw(240px)
+    @media (min-width: $min-width)
+        padding: 0 165px 90px 240px
+        justify-content: center
+    +mediaSize(1100)
+        padding: 0 40px 80px 60px
+    +mediaSize(700)
+        flex-flow: row wrap
+        padding: 0 25px 65px 35px
+
+.screen-6 .bordered-content
+    background: rgba($theme-white, 0.55)
+    display: flex
+    flex-flow: column
+    width: get-vw(580px)
+    padding: get-vw(20px) get-vw(30px) get-vw(40px) get-vw(240px)
+    @media (min-width: $min-width)
+        width: 580px
+        padding: 20px 30px 40px 240px
+        margin-right: 40px
+    +mediaSize(1100)
+        width: 50%
+        padding: 20px 20px 30px 60px
+    +mediaSize(1000)
+        width: calc(55% - 20px)
+    +mediaSize(700)
+        width: 100%
+    +mediaSize(500)
+        padding: 20px 15px 30px 20px
+
+.screen-6 .bordered-content a,
+.screen-6 .bordered-content p
+    font-size: get-vw(14px)
+    line-height: 1.9
+    @media (min-width: $min-width)
+        font-size: 14px
+    +mediaSize(1100)
+        font-size: 14px
+
+.screen-6 hr
+    margin-top: get-vw(30px)
+    margin-bottom: get-vw(10px)
+    @media (min-width: $min-width)
+        margin-top: 30px
+        margin-bottom: 10px
+    +mediaSize(1100)
+        margin-top: 30px
+        margin-bottom: 10px
+
+.screen-6 h4
+    font-size: get-vw(25px)
+    line-height: 1.76
+    @media (min-width: $min-width)
+        font-size: 25px
+    +mediaSize(1100)
+        font-size: 23px
+    +mediaSize(500)
+        white-space: nowrap
+
+.form-wrap
+    width: get-vw(260px)
+    @media (min-width: $min-width)
+        width: 260px
+    +mediaSize(1100)
+        width: 35%
+    +mediaSize(1000)
+        width: calc(45% - 20px)
+    +mediaSize(700)
+        width: 100%
+        margin-top: 100px
+
+.form-wrap input:not([type="submit"])
+    background: #DFDFDF
+    font-size: get-vw(11px)
+    padding: get-vw(1px) 0 get-vw(1px) get-vw(15px)
+    @media (min-width: $min-width)
+        padding: 1px 0 1px 15px
+        font-size: 11px
+    +mediaSize(1100)
+        font-size: 11px
+        padding: 6.5px 0 6.5px 15px
+        +letterSpace(50)
+
+.form-wrap label:not(.button-main)
+    padding-right: get-vw(20px)
+    @media (min-width: $min-width)
+        padding-right: 20px
+    +mediaSize(1100)
+        padding-right: 20px
+
+.form-wrap label + label:not(.button-main)
+    margin-top: get-vw(15px)
+    @media (min-width: $min-width)
+        margin-top: 15px
+    +mediaSize(1100)
+        margin-top: 15px
+
+label.button-main
+    margin-top: get-vw(50px)
+    @media (min-width: $min-width)
+        margin-top: 50px
+    +mediaSize(1100)
+        margin-top: 40px
+    +mediaSize(700)
+        width: 250px
+        margin-left: auto
+        margin-right: auto
+    +mediaSize(500)
+        width: 100%
+
+.form-wrap p
+    font-size: get-vw(18px)
+    margin-bottom: get-vw(40px)
+    line-height: 1.7
+    @media (min-width: $min-width)
+        font-size: 18px
+        margin-bottom: 40px
+    +mediaSize(1100)
+        font-size: 18px
+        margin-bottom: 40px
+
+.screen-6 .absolute-image
+    bottom: get-vw(-35px)
+    left: get-vw(-60px)
+    @media (min-width: $min-width)
+        bottom: -35px
+        left: -60px
+    +mediaSize(700)
+        bottom: -40px
+        left: -35px
+
+.screen-6 .absolute-text
+    width: get-vw(90px)
+    height: get-vw(90px)
+    top: 0
+    left: 0
+    transform: translate(-60%, -60%)
+    +mediaSize(1100)
+        width: 100px
+        height: 100px

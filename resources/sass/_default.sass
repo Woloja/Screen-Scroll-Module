@@ -1,0 +1,326 @@
+//default styles for site
+html, body
+    font-family: $main-font
+    color: $default-color
+    -webkit-tap-highlight-color: $transparent
+    font-weight: normal
+    margin: 0
+    line-height: normal
+    text-size-adjust: 100%
+    border: none
+    letter-spacing: normal
+    font-kerning: none
+    text-rendering: optimizeSpeed
+    overflow-scrolling: revert
+    width: 100%
+    background: #e8e8e8
+    +letterSpace(70)
+    // overflow-x: hidden
+    +letterSpace(0)
+    +mediaSize(desktop)
+        font-size: get-vw(14px)
+    +mediaSize(float)
+        font-size: get-vw(14px)
+    +mediaSize(1200)
+        font-size: 12px
+    +mediaSize(700)
+        font-size: 10px
+    @media (hover: none) and (pointer: coarse)
+        cursor: pointer
+    @media (min-width: $min-width)
+        font-size: 14px
+
+body:not(.loaded) svg
+    display: none
+
+.svg-container,
+.svg_container
+    position: absolute
+    left: 0
+    bottom: 0
+    width: 0
+    height: 0
+    opacity: 0
+    visibility: hidden
+    z-index: -1
+
+.ajax-content
+    display: none
+
+.modal-content
+    display: none
+
+.img-wrap img
+    width: 100%
+    max-width: 100%
+
+.disabled
+    pointer-events: none !important
+    opacity: .5 !important
+    box-shadow: none !important
+    color: $disabled-color !important
+
+.georgia
+    font-family: $georgia-font
+
+.italic
+    font-style: italic
+
+.weight-1
+    font-weight: 100
+
+.weight-2
+    font-weight: 200
+
+.weight-3
+    font-weight: 300
+
+.weight-4
+    font-weight: normal
+
+.weight-5
+    font-weight: 500
+
+.weight-6
+    font-weight: 600
+
+.weight-7
+    font-weight: bold
+
+.weight-8
+    font-weight: 800
+
+.weight-9
+    font-weight: 900
+//-----------------------------------------------
+//
+
+h1, .h1
+    margin: 0
+    color: $default-color
+
+h2, .h2
+    margin: 0
+    color: $default-color
+
+h3, .h3
+    margin: 0
+    color: $default-color
+
+h4, .h4
+    margin: 0
+    color: $default-color
+
+h5, .h5
+    margin: 0
+    color: $default-color
+
+h6, .h6
+    margin: 0
+    color: $default-color
+
+span, p
+    color: $default-color
+    margin: 0
+
+a
+    color: $default-color
+    cursor: pointer
+
+body:not(.mobile) a:hover
+    color: $active-color
+
+::placeholder
+    opacity: 1
+    color: $default-color
+
+textarea:disabled, input:disabled
+    background-color: $transparent
+
+button
+    background: $transparent
+    border: none
+    border-radius: 0
+    padding: 0
+
+a
+    background-color: $transparent
+    text-decoration: none
+
+label
+    display: block
+    position: relative
+    cursor: pointer
+
+legend, fieldset, input, optgroup, button, select, figure, textarea, select
+    line-height: normal
+    border: none
+    padding: 0
+    background: $transparent
+    display: block
+    width: 100%
+    text-align: left
+
+input[type=submit]
+    border: none
+    background: $transparent
+
+mark
+    background: $transparent
+    color: $default-color
+
+hr
+    box-sizing: content-box
+    display: block
+    height: 1px
+    border: 0
+    padding: 0
+    width: 100%
+    margin-top: 0
+    margin-bottom: 0
+    background: $theme-black
+
+*::selection
+    background: rgba(0, 0, 0, 0.2)
+    text-shadow: none
+
+.test
+    display: flex
+    flex-flow: row
+    padding: 30px
+
+.test p + p
+    margin-top: 30px
+
+.pink
+    color: $active-color
+
+.main-sections
+    opacity: 0
+    padding-right: get-vw(50px)
+    @media (min-width: $min-width)
+        padding-right: 50px
+    +mediaSize(1100)
+        padding-right: 40px
+    +mediaSize(1000)
+        padding-right: 0
+        padding-top: 50px
+        width: 100%
+        overflow: hidden
+    +mediaSize(700)
+        padding-top: 40px
+
+body.loaded .main-sections
+    opacity: 1
+
+.section
+    display: flex
+    flex-flow: row wrap
+    position: relative
+
+.screen-page
+    width: 100%
+
+.bordered-content
+    border: 1px solid $theme-black
+    position: relative
+
+.section-content
+    display: flex
+    position: relative
+    z-index: 10
+    width: 100%
+
+.absolute-image
+    position: absolute
+    width: get-vw(160px)
+    height: get-vw(110px)
+    @media (min-width: $min-width)
+        width: 160px
+        height: 110px
+    +mediaSize(1100)
+        width: 105px
+        height: 70px
+
+.absolute-image svg *,
+.absolute-text svg *
+    fill: $theme-black
+
+.absolute-text
+    position: absolute
+    +mediaSize(500)
+        display: none !important
+
+.button-main *
+    +letterSpace(120)
+
+
+.button-main
+    display: flex
+    align-items: baseline
+    background: $theme-black
+    color: $theme-white
+    padding: get-vw(35px) get-vw(30px) get-vw(10px) get-vw(15px)
+    @media (min-width: $min-width)
+        padding: 35px 30px 10px 15px
+    +mediaSize(1100)
+        padding: 36px 30px 12px 15px
+    +mediaSize(700)
+        min-width: 250px
+
+input[type=submit],
+.button-main span
+    text-transform: uppercase
+    color: $theme-white
+    font-size: get-vw(15px)
+    margin-right: get-vw(15px)
+    @media (min-width: $min-width)
+        font-size: 15px
+        margin-right: 15px
+    +mediaSize(1100)
+        font-size: 15px
+        margin-right: 15px
+
+.button-main svg
+    width: get-vw(7px)
+    min-width: 7px
+    height: get-vw(11px)
+    min-height: 11px
+    color: $theme-white
+    @media (min-width: $min-width)
+        width: 8px
+        min-width: 8px
+        height: 12px
+        min-height: 12px
+    +mediaSize(1100)
+        width: 8px
+        min-width: 8px
+        height: 12px
+        min-height: 12px
+
+.button-main:hover
+    color: #ffffff
+
+.hide-1000
+    +mediaSize(1000)
+        display: none
+
+.show-1000
+    @media (min-width: 1001px)
+        display: none
+
+.hide-500
+    +mediaSize(500)
+        display: none
+
+.show-500
+    @media (min-width: 501px)
+        display: none
+
+.hide-700
+    +mediaSize(700)
+        display: none
+
+.show-700
+    @media (min-width: 701px)
+        display: none

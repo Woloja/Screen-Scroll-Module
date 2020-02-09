@@ -1,0 +1,250 @@
+//-----------------------------
+
+.screen-4 .line-1
+    top: get-vw(60px)
+    +mediaSize(1000)
+        top: auto
+        bottom: 25px
+    +mediaSize(700)
+        bottom: auto
+        transform: translate(0, -50%)
+
+.screen-4 .big-letters-marquee.line-1
+    width: get-vw(1605px) * 2
+    height: get-vw(320px)
+    animation-name: marquee-4-1
+    +mediaSize(500)
+        width: 500vw
+        height: 220px
+        animation-name: mobile-marquee-4-1
+
+@keyframes marquee-4-1
+    0%
+        left: 0
+    100%
+        left: get-vw(-1605px)
+
+@keyframes mobile-marquee-4-1
+    0%
+        left: 0
+    100%
+        left: calc(-500vw / 2)
+
+//-----------------------------
+
+.gallery-main
+    margin-bottom: get-vw(20px)
+    @media (min-width: $min-width)
+        margin-bottom: 20px
+    +mediaSize(1100)
+        margin-bottom: 20px
+    +mediaSize(700)
+        margin-bottom: 0
+
+.gallery-main .swiper-wrapper
+    +mediaSize(700)
+        flex-flow: row wrap
+        position: static
+
+.screen-4 .section-content
+    flex-flow: row wrap
+    align-items: flex-start
+    align-content: flex-start
+    @media (min-width: $min-width)
+        align-items: center
+        align-content: center
+    +mediaSize(1100)
+        align-items: center
+        align-content: center
+
+.screen-4 .swiper-container
+    width: 100%
+
+.gallery-main .swiper-slide
+    padding-top: get-vh(100px)
+    padding-left: get-vw(150px)
+    display: flex
+    align-items: center
+    @media (min-width: $min-width)
+        padding-top: 100px
+        padding-left: 150px
+        align-content: center
+        justify-content: center
+    +mediaSize(1100)
+        padding-top: 60px
+        padding-left: 60px
+    +mediaSize(1000)
+        padding-top: 40px
+    +mediaSize(700)
+        flex-flow: row wrap
+        padding-top: 60px
+        padding-right: 40px
+    +mediaSize(500)
+        padding-left: 35px
+        padding-right: 25px
+
+.gallery-main .swiper-slide img
+    width: get-vw(580px)
+    min-width: get-vw(580px)
+    height: get-vh(445px)
+    object-fit: cover
+    @media (min-width: $min-width)
+        width: 580px
+        min-width: 580px
+        height: 445px
+    +mediaSize(1100)
+        width: 100%
+        height: 100%
+        min-width: 1px
+
+.slide-content
+    display: flex
+    flex-flow: column
+    align-items: flex-start
+    margin-left: get-vw(80px)
+    padding-bottom: get-vw(100px)
+    padding-right: 5%
+    position: relative
+    z-index: 5
+    @media (min-width: $min-width)
+        margin-left: 80px
+        padding-bottom: 100px
+    +mediaSize(1100)
+        margin-left: 40px
+        width: calc(40% - 40px)
+        padding-bottom: 50px
+        padding-right: 40px
+    +mediaSize(1000)
+        margin-left: 20px
+        width: calc(40% - 20px)
+    +mediaSize(700)
+        padding-bottom: 0
+        padding-right: 0
+        margin-left: 0
+        margin-top: 20px
+        padding-left: 30px
+        width: 100%
+
+
+.slide-image
+    position: relative
+    +mediaSize(1100)
+        width: 60%
+        min-width: 60%
+        height: auto
+    +mediaSize(700)
+        width: 100%
+        padding-right: 0
+
+.gallery-main *
+    +letterSpace(50)
+    line-height: 1.79
+
+.gallery-main h3
+    font-size: get-vw(60px)
+    margin-left: get-vw(-240px)
+    margin-bottom: get-vw(10px)
+    white-space: nowrap
+    width: auto
+    @media (min-width: $min-width)
+        font-size: 60px
+        margin-left: -240px
+        margin-bottom: 10px
+    +mediaSize(1100)
+        font-size: 45px
+        margin-left: -100px
+        line-height: 1.2
+        margin-bottom: 10px
+        white-space: normal
+    +mediaSize(1000)
+        font-size: 35px
+        margin-left: -100px
+        width: calc(100% + 100px)
+    +mediaSize(700)
+        margin-left: 0
+        width: 100%
+        padding-left: 30px
+        margin-bottom: 5px
+
+.gallery-main .pink
+    font-size: get-vw(20px)
+    @media (min-width: $min-width)
+        font-size: 20px
+    +mediaSize(1100)
+        font-size: 20px
+    +mediaSize(1000)
+        white-space: nowrap
+
+.gallery-main .weight-3
+    font-size: get-vw(17px)
+    margin-top: get-vw(50px)
+    @media (min-width: $min-width)
+        font-size: 17px
+        margin-top: 50px
+    +mediaSize(1100)
+        font-size: 13px
+        margin-top: 30px
+    +mediaSize(700)
+        margin-top: 10px
+
+.gallery-thumbs
+    overflow: visible
+    padding-left: get-vw(415px)
+    @media (min-width: $min-width)
+        padding-left: 45%
+    +mediaSize(1100)
+        padding-left: 35%
+    +mediaSize(1000)
+        padding-left: 0
+        padding-right: 40px
+        display: flex
+        justify-content: flex-end
+    +mediaSize(700)
+        display: none
+
+.gallery-thumbs .swiper-wrapper
+    +mediaSize(1000)
+        width: auto
+        margin-right: -20px
+
+.gallery-thumbs .swiper-slide img
+    display: flex
+    width: 100%
+    height: 100%
+    object-fit: cover
+
+.gallery-thumbs .swiper-slide
+    display: flex
+    width: get-vw(140px)
+    height: get-vw(115px)
+    @media (min-width: $min-width)
+        width: 140px
+        height: 115px
+    +mediaSize(1100)
+        width: 120px
+        height: 95px
+
+.gallery-thumbs img
+    border: 1px solid $theme-black
+
+.gallery-thumbs a
+    display: flex
+    width: 100%
+
+.gallery-thumbs .swiper-slide-thumb-active img
+    border: 1px solid $active-color
+
+.slide-image .absolute-text
+    top: 0
+    left: 0
+    width: get-vw(90px)
+    height: get-vw(90px)
+    transform: translate(-55%, -55%)
+    @media (min-width: $min-width)
+        width: 90px
+        height: 90px
+    +mediaSize(1100)
+        width: 100px
+        height: 100px
+    +mediaSize(500)
+        display: none
