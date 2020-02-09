@@ -15,7 +15,7 @@
 /.vscode
 /cache/
 /node_modules
-/public/themes/builder/
+/dist/themes/builder/
 /storage/*.key
 /themes/builder/move-to-public/
 /vendor
@@ -28,16 +28,16 @@ gzip.php
 modules/*/Config/backup/
 npm-debug.log
 package-lock.json
-public/hot
-public/storage
-public/watermark/watermark.png
+dist/hot
+dist/storage
+dist/watermark/watermark.png
 stats.json
 storage/*.key
 vendor/
 yarn-error.log
 
-/public/css/
-/public/js/
-/public/fonts/
-/public/image/
-/public/index.html
+/dist/css/
+/dist/js/
+/dist/fonts/
+/dist/image/
+/dist/index.html

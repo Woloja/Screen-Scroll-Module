@@ -217,89 +217,12 @@ body.loaded .main-sections
     display: flex
     flex-flow: row wrap
     position: relative
+    justify-content: center
+    align-items: center
+    font-size: get-vw(60px)
 
 .screen-page
     width: 100%
-
-.bordered-content
-    border: 1px solid $theme-black
-    position: relative
-
-.section-content
-    display: flex
-    position: relative
-    z-index: 10
-    width: 100%
-
-.absolute-image
-    position: absolute
-    width: get-vw(160px)
-    height: get-vw(110px)
-    @media (min-width: $min-width)
-        width: 160px
-        height: 110px
-    +mediaSize(1100)
-        width: 105px
-        height: 70px
-
-.absolute-image svg *,
-.absolute-text svg *
-    fill: $theme-black
-
-.absolute-text
-    position: absolute
-    +mediaSize(500)
-        display: none !important
-
-.button-main *
-    +letterSpace(120)
-
-
-.button-main
-    display: flex
-    align-items: baseline
-    background: $theme-black
-    color: $theme-white
-    padding: get-vw(35px) get-vw(30px) get-vw(10px) get-vw(15px)
-    @media (min-width: $min-width)
-        padding: 35px 30px 10px 15px
-    +mediaSize(1100)
-        padding: 36px 30px 12px 15px
-    +mediaSize(700)
-        min-width: 250px
-
-input[type=submit],
-.button-main span
-    text-transform: uppercase
-    color: $theme-white
-    font-size: get-vw(15px)
-    margin-right: get-vw(15px)
-    @media (min-width: $min-width)
-        font-size: 15px
-        margin-right: 15px
-    +mediaSize(1100)
-        font-size: 15px
-        margin-right: 15px
-
-.button-main svg
-    width: get-vw(7px)
-    min-width: 7px
-    height: get-vw(11px)
-    min-height: 11px
-    color: $theme-white
-    @media (min-width: $min-width)
-        width: 8px
-        min-width: 8px
-        height: 12px
-        min-height: 12px
-    +mediaSize(1100)
-        width: 8px
-        min-width: 8px
-        height: 12px
-        min-height: 12px
-
-.button-main:hover
-    color: #ffffff
 
 .hide-1000
     +mediaSize(1000)

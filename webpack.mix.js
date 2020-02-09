@@ -31,7 +31,7 @@ mix.options({
     ]
 });
 
-mix.setPublicPath('public');
+mix.setPublicPath('dist');
 mix.webpackConfig({
     resolve: {
         extensions: [".js"],
@@ -71,13 +71,13 @@ if (mix.inProduction()) {
     
     // convert single file into a backwards compatible
     // version of JavaScript in current and older browsers.
-    mix.babel("public/js/vanilla-app.js", "public/js/app.js");
-    mix.babel("public/js/vanilla-system.js", "public/js/system.js");
-    mix.babel("public/js/vanilla-polyfill.js", "public/js/polyfill.js");
+    mix.babel("dist/js/vanilla-app.js", "dist/js/app.js");
+    mix.babel("dist/js/vanilla-system.js", "dist/js/system.js");
+    mix.babel("dist/js/vanilla-polyfill.js", "dist/js/polyfill.js");
     
     mix.then(function () {
         
-        let filesToClear = ["public/js/vanilla-app.js", "public/js/vanilla-system.js", "public/js/vanilla-polyfill.js"];
+        let filesToClear = ["dist/js/vanilla-app.js", "dist/js/vanilla-system.js", "dist/js/vanilla-polyfill.js"];
     
         for (let i = 0; i < filesToClear.length; i++) {
             fs.stat(filesToClear[i], function(err, stats) {
@@ -98,20 +98,20 @@ if (mix.inProduction()) {
 } else {
     
     //section for development, will not work IE11<, safari 9.1.3<
-    mix.js("resources/js/app.js", "public/js/app.js");
-    mix.js("resources/js/system.js", "public/js/system.js");
-    mix.js("resources/js/polyfill.js", "public/js/polyfill.js");
+    mix.js("resources/js/app.js", "dist/js/app.js");
+    mix.js("resources/js/system.js", "dist/js/system.js");
+    mix.js("resources/js/polyfill.js", "dist/js/polyfill.js");
     // mix.sourceMaps();
 }
 
 // fonts, images, temporary diresctories
-mix.copyDirectory('resources/fonts', 'public/fonts/');
-mix.copyDirectory('resources/image', 'public/image/');
-mix.copyDirectory('resources/video', 'public/video/');
-mix.copyDirectory('resources/html', 'public/');
+mix.copyDirectory('resources/fonts', 'dist/fonts/');
+mix.copyDirectory('resources/image', 'dist/image/');
+mix.copyDirectory('resources/video', 'dist/video/');
+mix.copyDirectory('resources/html', 'dist/');
 // mix.copyDirectory("from", "to");
 
-mix.sass("resources/sass/app.sass", "public/css/app.css");
+mix.sass("resources/sass/app.sass", "dist/css/app.css");
 
 mix.extract([
     'axios',
