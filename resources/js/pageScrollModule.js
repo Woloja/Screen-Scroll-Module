@@ -1,5 +1,4 @@
 import debounce from "lodash.debounce"
-import {scrollToElem} from "./delta-functions";
 
 export default class PageScroll {
     constructor(data) {
@@ -41,6 +40,8 @@ export default class PageScroll {
         this.data.hash = 'screen';
         this.data.inScroll = false;
         this.data.transition = false;
+
+        this.options.wrapper.classList.add('screen-scroll');
         
         if('ontransitionend' in window) {
             this.data.transition = 'transitionend';
@@ -54,7 +55,7 @@ export default class PageScroll {
     
     async onInit() {
         let self = this;
-        return new Promise((resolve, reject) => {
+        return new Promise((resolve) => {
             this.hash;
             this.params = this.options.toggleScroll;
             this.wheelHandlerCharacter = this.bindWheel.bind(this);
@@ -68,8 +69,7 @@ export default class PageScroll {
             resolve();
         });
     }
-    
-    
+
     set events(wrapper) {
         let self = this;
         
@@ -103,8 +103,7 @@ export default class PageScroll {
         window.addEventListener('scroll', (e) => {
             this.onScroll();
         });
-        
-        
+
         window.addEventListener('keyup', (e) => {
             
             if (this.inScroll) return;
@@ -118,7 +117,10 @@ export default class PageScroll {
                     break;
             }
         }, true);
-        
+
+        window.onpopstate = function(event) {
+            console.log("location: " + document.location + ", state: ", event.state);
+        };
         
         if (this.options.pagination) {
             
@@ -135,17 +137,11 @@ export default class PageScroll {
                 
                 item.addEventListener('click', function (event) {
                     let index = parseInt(this.getAttribute('href').slice(1, this.getAttribute('href').length).split('=')[1]) - 1;
-    
-                    if (self.options.beforeScroll) {
-                        self.options.beforeScroll(self, self.options.sections[index], null);
-                    }
-    
+
                     if (window.innerWidth < self.options.toggleScroll) {
-                        scrollToElem(`#${this.getAttribute('data-id')}`, window.site.headerHeight).then(() => {
-                            document.querySelector('.scroll-link.active').classList.remove('active');
-                            this.classList.add('active');
-                            // self.afterScroll(index, null);
-                        });
+                        //TODO smooth - scroll
+                        document.querySelector('.scroll-link.active').classList.remove('active');
+                        this.classList.add('active');
                     } else {
                         if (index === self.data.currentIndex) return false;
                         if (index > self.data.currentIndex) {
@@ -211,14 +207,25 @@ export default class PageScroll {
     }
     
     beforeScroll(section, current, next) {
-        this.options.sections[this.data.currentIndex].classList.remove('active');
         document.body.setAttribute('data-section', `section-${next}`);
+        this.options.sections[this.data.currentIndex].classList.remove('active');
         section.classList.add('active');
+
+        if (this.options.beforeScroll) {
+            this.options.beforeScroll(this, this.options.sections[next], this.options.sections[current]);
+        }
+
     }
     
-    afterScroll() {
+    afterScroll(oldIDX, newIDX) {
+
         this.hash = this.data.currentIndex;
         this.startIndex = this.data.currentIndex;
+
+        if (this.options.afterScroll) {
+            this.options.afterScroll(this, this.options.sections[newIDX], this.options.sections[oldIDX]);
+        }
+
     }
     
     scrollToSection(direction, event) {
@@ -243,9 +250,6 @@ export default class PageScroll {
             prevIndex = this.data.currentIndex;
         
         this.inScroll = true;
-        if (this.options.beforeScroll) {
-            this.options.beforeScroll(this, this.options.sections[index], this.options.sections[prevIndex]);
-        }
         this.beforeScroll(this.options.sections[index], prevIndex, nextIndex);
         
         this.options.wrapper.style.transform = `translateY(${position})`;
@@ -263,11 +267,8 @@ export default class PageScroll {
                 }
     
             }
-            
-            if (this.options.afterScroll) {
-                this.options.afterScroll(this, this.options.sections[index], this.options.sections[prevIndex]);
-                this.afterScroll(prevIndex, nextIndex);
-            }
+
+            this.afterScroll(prevIndex, nextIndex);
             this.updatePagination();
             
         }, this.options.speed * 1.2);
@@ -380,9 +381,9 @@ export default class PageScroll {
     
     set hash(index) {
         if (index === -1) {
-            location.hash = '';
+            history.pushState({screen: false}, "Screen Scroll module", ``);
         } else {
-            location.hash = `#${this.data.hash}=${index + 1}`;
+            history.pushState({screen: index + 1}, "Screen Scroll module", `#${this.data.hash}=${index + 1}`);
         }
     }
     

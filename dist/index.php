@@ -35,20 +35,15 @@
 
     <body class="<?=$devise_type. ' ' .$old_browser_class;?>">
 
+        <header class="scroll-pagination"></header>
+
         <div class="main-sections">
-
-            <div data-name="Про нас" class="section screen-1">1</div>
-
-            <div data-name="Про ідею" class="section screen-2">2</div>
-
-            <div data-name="Послуги" class="section screen-3">3</div>
-
-            <div data-name="Нахаби" class="section screen-4">4</div>
-
-            <div data-name="Портфоліо" class="section screen-5">5</div>
-
-            <div data-name="Контакти" class="section screen-6">6</div>
-
+            <div data-name="Про нас" class="section">1</div>
+            <div data-name="Про ідею" class="section">2</div>
+            <div data-name="Послуги" class="section">3</div>
+            <div data-name="Нахаби" class="section">4</div>
+            <div data-name="Портфоліо" class="section">5</div>
+            <div data-name="Контакти" class="section">6</div>
         </div>
 
         <div class="fixed-panel">

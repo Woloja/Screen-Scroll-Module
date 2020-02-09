@@ -1,0 +1,52 @@
+.scroll-pagination
+    position: fixed
+    top: 0
+    left: 0
+    right: 0
+    background: $theme-black
+    display: flex
+    align-items: center
+    z-index: 10000
+    width: 100%
+    padding-right: get-vw(105px)
+    padding-left: get-vw(205px)
+    @media (min-width: $min-width)
+        padding-right: 105px
+        padding-left: 205px
+    +mediaSize(1100)
+        padding-right: 40px
+        padding-left: 120px
+    +mediaSize(1000)
+        position: fixed
+        padding-left: 40px
+        top: 0
+        left: 0
+        right: 0
+    +mediaSize(700)
+        padding: 0 25px
+        height: 40px
+
+.scroll-pagination *
+    color: $theme-white
+    transition: all .25s ease-in-out
+    font-weight: 300
+    line-height: 1.763
+    font-size: get-vw(14px)
+    +letterSpace(10)
+    @media (min-width: $min-width)
+        font-size: 14px
+    +mediaSize(1100)
+        font-size: 12px
+
+.scroll-pagination a
+    +mediaSize(desktop)
+        padding: get-vw(15px)
+    +mediaSize(float)
+        padding: get-vw(15px)
+    +mediaSize(1200)
+        padding: get-vw(15px)
+
+.scroll-pagination a.active
+    transform: scale(1.15) translate(0, -1%)
+    transform-origin: center
+    text-decoration: overline

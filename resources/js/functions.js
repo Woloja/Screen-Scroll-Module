@@ -117,7 +117,7 @@ export function isTouchDevice() {
  * @param activeClass {string} - class for check button and block state
  * @returns {void}
  *********************/
-export function closeOnOutsideClick(event, block, button, activeClass) {
+export function closeOnOutsideClick(event, block, button, activeClass)  {
     if (typeof TweenMax === "undefined") throw new Error('for execute need <a href="https://www.npmjs.com/package/gsap">TweenMax</a>');
 
     block = getElements(block);
@@ -127,11 +127,6 @@ export function closeOnOutsideClick(event, block, button, activeClass) {
 
     let isTargetBlock = checkOutsideClick(event, block, button, activeClass);
     if (isTargetBlock) {
-        TweenMax.to(block, 0.25, {
-            scale: 0,
-            opacity: 0,
-            ease: Power1.easeIn
-        });
         block.classList.remove(activeClass);
         button.classList.remove(activeClass);
     }
@@ -152,80 +147,6 @@ function checkOutsideClick(event, block, button, activeClass) {
         !block.contains(event.target) &&
         !button.contains(event.target)
     );
-}
-
-/*********************
- *** Scroll document to element
- * @param elem {HTMLElement|String}
- * @param offsetRange {number}
- * @param time {number} float in seconds
- * @returns {Promise}
- *********************/
-export function scrollToElem(elem, offsetRange = 0, time = 0.4) {
-    if (window.hasOwnProperty('site')) {
-        if (window.site.hasOwnProperty('isOldSafari')) {
-            time = 0.8;
-        }
-    }
-    
-    return new Promise((resolve) => {
-    
-        if ((typeof elem === "string" && typeof elem !== "object") || elem.constructor === String){
-            if (document.querySelectorAll(elem) > 1) {
-                console.log('too mach elements, but scroll to first');
-            }
-            elem = document.querySelector(elem);
-        }
-        
-        if (elem) {
-            TweenMax.to(window, time, {
-                scrollTo : { y : elem.getBoundingClientRect().top + (window.scrollY || window.pageYOffset) - offsetRange, autoKill : false},
-                onComplete: resolve
-            });
-        }
-    });
-}
-
-/*********************
- *** Set browser cookie
- * @param name
- * @param value
- * @param days
- * @returns {undefined}
- *********************/
-export function createCookie(name, value, days) {
-    let expires = "";
-    if (days) {
-        let date = new Date();
-        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-        expires = "; expires=" + date.toUTCString();
-    }
-    document.cookie = name + "=" + value + expires + "; path=/";
-}
-
-/*********************
- *** Get browser cookie
- * @param {string} name
- * @returns {string | null}
- *********************/
-export function readCookie(name) {
-    let nameEQ = name + "=";
-    let ca = document.cookie.split(';');
-    for (let i = 0; i < ca.length; i++) {
-        let c = ca[i];
-        while (c.charAt(0) === " ") c = c.substring(1, c.length);
-        if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
-    }
-    return null;
-}
-
-/*********************
- *** Delete browser cookie
- * @param name
- * @returns {undefined}
- *********************/
-export function eraseCookie(name) {
-    createCookie(name, "", -1);
 }
 
 /*********************
@@ -251,34 +172,6 @@ export function objectFitImages(elements, size, needed) {
     }
 }
 
-//
-// $.fn.fileInputName = function (shapeStart, shapeEnd) {
-//     var filePlaceholder = '',
-//         wrapper = this.parent(),
-//         text = wrapper.find('span');
-//
-//     $(wrapper).click(function () {
-//         filePlaceholder = $(text).text();
-//     });
-//
-//     this.change(function () {
-//         var filename = $(this).val().replace(/^.*[\\\/]/, ''),
-//             ext = filename.split('.').pop();
-//         text.text();
-//         console.log(ext);
-//
-//         wrapper.addClass('active');
-//         TweenMax.to(shapeStart, 1, {
-//             delay: .5,
-//             morphSVG: shapeEnd
-//         });
-//         if ($(this).val() == "") {
-//             $(text).text(filePlaceholder);
-//             wrapper.removeClass('active');
-//         }
-//     });
-// };
-
 export function getSiblings(elem) {
     // Setup siblings array and get the first sibling
     let siblings = [];
@@ -292,8 +185,6 @@ export function getSiblings(elem) {
     }
     return siblings;
 }
-
-
 
 export function isExist(elements, callback) {
     // if elements = its a "css sting"
@@ -331,33 +222,6 @@ export function decOfNum(number, titles) {
     let cases = [2, 0, 1, 1, 1, 2];
     return titles[ (number%100>4 && number%100<20)? 2 : cases[(number%10<5)?number%10:5] ];
 }
-
-export async function gsapToggleHeight(button, className = 'active', speed = 0.4, delayT = 0) {
-    let trigger = button.getAttribute('data-toggle-btn');
-    let target = document.querySelector(`[data-toggle-block="${trigger}"]`);
-    
-    console.log(button);
-    
-    target.style.transition = 'none';
-    if (!button || !target || !trigger) return;
-    
-    button.classList.toggle(className);
-    
-    if (!button.classList.contains(className)) {
-        return new Promise(function(resolve){
-            TweenMax.set(target, {height: target.offsetHeight, opacity: 1});
-             new TimelineMax({onComplete() {resolve(button.classList.contains(className))}})
-                .to(target, speed, {height: 0, opacity: 0, ease: Power0.easeNone});
-        });
-    } else {
-        return new Promise(function(resolve){
-            TweenMax.set(target, {height: "auto", opacity: 1});
-             new TimelineMax({onComplete() {resolve(button.classList.contains(className))}})
-                .from(target, speed, {height: 0, opacity: 0, ease: Power0.easeNone});
-        });
-    }
-}
-
 
 
 if (!Element.prototype.horizontallyScroll) {

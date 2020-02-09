@@ -1,0 +1,26 @@
+
+.screen-scroll
+  opacity: 0
+  padding-right: get-vw(50px)
+  @media (min-width: $min-width)
+    padding-right: 50px
+  +mediaSize(1100)
+    padding-right: 40px
+  +mediaSize(1000)
+    padding-right: 0
+    padding-top: 50px
+    width: 100%
+    overflow: hidden
+  +mediaSize(700)
+    padding-top: 40px
+
+body.loaded .main-sections
+  opacity: 1
+
+.section
+  display: flex
+  flex-flow: row wrap
+  position: relative
+  justify-content: center
+  align-items: center
+  font-size: get-vw(60px)

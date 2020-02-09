@@ -17,7 +17,7 @@ import {
     equalRowHeight,
     gsapToggleHeight,
     scrollToElem
-} from "./delta-functions";
+} from "./functions";
 
 async function getPageParams() {
 

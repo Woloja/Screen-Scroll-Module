@@ -35,20 +35,8 @@ mix.setPublicPath('dist');
 mix.webpackConfig({
     resolve: {
         extensions: [".js"],
-        modules: ["node_modules"],
-        alias: {
-            /** GSAP */
-            // 'TweenLite': 'gsap/src/minified/TweenLite.min.js',
-            // 'TweenMax': 'gsap/src/minified/TweenMax.min.js',
-            // 'TimelineLite': 'gsap/src/minified/TimelineLite.min.js',
-            // 'TimelineMax': 'gsap/src/minified/TimelineMax.min.js',
-            
-            /** ScrollMagic and bridge GSAP */
-            // 'ScrollMagic': 'scrollmagic/scrollmagic/minified/ScrollMagic.min.js',
-            // 'animation.gsap': 'scrollmagic/scrollmagic/minified/plugins/animation.gsap.min.js',
-        }
-    },
-    plugins: []
+        modules: ["node_modules"]
+    }
 });
 
 if (mix.inProduction()) {
@@ -106,8 +94,6 @@ if (mix.inProduction()) {
 
 // fonts, images, temporary diresctories
 mix.copyDirectory('resources/fonts', 'dist/fonts/');
-mix.copyDirectory('resources/image', 'dist/image/');
-mix.copyDirectory('resources/video', 'dist/video/');
 mix.copyDirectory('resources/html', 'dist/');
 // mix.copyDirectory("from", "to");
 
@@ -119,8 +105,3 @@ mix.extract([
     'lodash.debounce',
     'sweetalert2'
 ]);
-// mix.sourceMaps(); // Enable sourcemaps
-// mix.version(); // Enable versioning.
-// mix.disableNotifications();
-
-// mix.browserSync('name.domain');
